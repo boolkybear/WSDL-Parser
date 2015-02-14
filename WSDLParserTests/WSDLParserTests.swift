@@ -103,4 +103,30 @@ class WSDLParserTests: XCTestCase {
 		XCTAssertNotNil(firstSchema, "First schema is nil")
 		XCTAssert((firstSchema?.complexTypes.count ?? 0) > 0, "Schema doesn't have any complex type")
 	}
+	
+	func testMessages()
+	{
+		XCTAssert((self.parser?.definitions?.messages.count ?? 0) > 0, "WSDL doesn't have any message")
+	}
+	
+	func testMessageParts()
+	{
+		let firstMessage = self.parser?.definitions?.messages.first
+		XCTAssertNotNil(firstMessage, "First message is nil")
+		XCTAssert((firstMessage?.parts.count ?? 0) > 0, "Message doesn't have any part")
+	}
+	
+	func testPortTypes()
+	{
+		XCTAssert((self.parser?.definitions?.portTypes.count ?? 0) > 0, "WSDL doesn't have any portType")
+	}
+	
+	func testPortTypeOperation()
+	{
+		let firstPortType = self.parser?.definitions?.portTypes.first
+		XCTAssertNotNil(firstPortType, "First portType is nil")
+		XCTAssertNotNil(firstPortType?.operation, "First portType operation is nil")
+		XCTAssertNotNil(firstPortType?.operation?.input, "First portType operation input is nil")
+		XCTAssertNotNil(firstPortType?.operation?.output, "First portType operation output is nil")
+	}
 }
