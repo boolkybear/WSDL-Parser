@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7467D441A8E00EC00F70338 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D431A8E00EC00F70338 /* AppDelegate.swift */; };
+		A7467D461A8E00EC00F70338 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D451A8E00EC00F70338 /* ViewController.swift */; };
+		A7467D481A8E00EC00F70338 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7467D471A8E00EC00F70338 /* Images.xcassets */; };
+		A7467D4B1A8E00EC00F70338 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7467D491A8E00EC00F70338 /* Main.storyboard */; };
+		A7467D571A8E00EC00F70338 /* WSDLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D561A8E00EC00F70338 /* WSDLParserTests.swift */; };
+		A7467D611A8E020900F70338 /* WSDLParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D601A8E020900F70338 /* WSDLParserDelegate.swift */; };
+		A7467D641A8E1B3300F70338 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D631A8E1B3300F70338 /* Stack.swift */; };
+		A7467D671A8E1FC600F70338 /* ifNotNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D661A8E1FC600F70338 /* ifNotNil.swift */; };
+		A7467D691A8E2B9A00F70338 /* ifNotNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D661A8E1FC600F70338 /* ifNotNil.swift */; };
+		A7467D6A1A8E2B9C00F70338 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D631A8E1B3300F70338 /* Stack.swift */; };
+		A7467D6B1A8E2BA200F70338 /* WSDLParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D601A8E020900F70338 /* WSDLParserDelegate.swift */; };
+		A7467D6D1A8E87C000F70338 /* Dictionary+functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */; };
+		A7467D6E1A8E87C000F70338 /* Dictionary+functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7467D511A8E00EC00F70338 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7467D361A8E00EB00F70338 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7467D3D1A8E00EB00F70338;
+			remoteInfo = WSDLParser;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A7467D3E1A8E00EC00F70338 /* WSDLParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSDLParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7467D421A8E00EC00F70338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7467D431A8E00EC00F70338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A7467D451A8E00EC00F70338 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7467D471A8E00EC00F70338 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A7467D4A1A8E00EC00F70338 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7467D501A8E00EC00F70338 /* WSDLParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WSDLParserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7467D551A8E00EC00F70338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7467D561A8E00EC00F70338 /* WSDLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WSDLParserTests.swift; sourceTree = "<group>"; };
+		A7467D601A8E020900F70338 /* WSDLParserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WSDLParserDelegate.swift; sourceTree = "<group>"; };
+		A7467D631A8E1B3300F70338 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		A7467D661A8E1FC600F70338 /* ifNotNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ifNotNil.swift; sourceTree = "<group>"; };
+		A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+functional.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7467D3B1A8E00EB00F70338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7467D4D1A8E00EC00F70338 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7467D351A8E00EB00F70338 = {
+			isa = PBXGroup;
+			children = (
+				A7467D401A8E00EC00F70338 /* WSDLParser */,
+				A7467D531A8E00EC00F70338 /* WSDLParserTests */,
+				A7467D3F1A8E00EC00F70338 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7467D3F1A8E00EC00F70338 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7467D3E1A8E00EC00F70338 /* WSDLParser.app */,
+				A7467D501A8E00EC00F70338 /* WSDLParserTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7467D401A8E00EC00F70338 /* WSDLParser */ = {
+			isa = PBXGroup;
+			children = (
+				A7467D661A8E1FC600F70338 /* ifNotNil.swift */,
+				A7467D631A8E1B3300F70338 /* Stack.swift */,
+				A7467D431A8E00EC00F70338 /* AppDelegate.swift */,
+				A7467D451A8E00EC00F70338 /* ViewController.swift */,
+				A7467D471A8E00EC00F70338 /* Images.xcassets */,
+				A7467D491A8E00EC00F70338 /* Main.storyboard */,
+				A7467D411A8E00EC00F70338 /* Supporting Files */,
+				A7467D601A8E020900F70338 /* WSDLParserDelegate.swift */,
+				A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */,
+			);
+			path = WSDLParser;
+			sourceTree = "<group>";
+		};
+		A7467D411A8E00EC00F70338 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7467D421A8E00EC00F70338 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7467D531A8E00EC00F70338 /* WSDLParserTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7467D561A8E00EC00F70338 /* WSDLParserTests.swift */,
+				A7467D541A8E00EC00F70338 /* Supporting Files */,
+			);
+			path = WSDLParserTests;
+			sourceTree = "<group>";
+		};
+		A7467D541A8E00EC00F70338 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7467D551A8E00EC00F70338 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7467D3D1A8E00EB00F70338 /* WSDLParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7467D5A1A8E00EC00F70338 /* Build configuration list for PBXNativeTarget "WSDLParser" */;
+			buildPhases = (
+				A7467D3A1A8E00EB00F70338 /* Sources */,
+				A7467D3B1A8E00EB00F70338 /* Frameworks */,
+				A7467D3C1A8E00EB00F70338 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WSDLParser;
+			productName = WSDLParser;
+			productReference = A7467D3E1A8E00EC00F70338 /* WSDLParser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7467D4F1A8E00EC00F70338 /* WSDLParserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7467D5D1A8E00EC00F70338 /* Build configuration list for PBXNativeTarget "WSDLParserTests" */;
+			buildPhases = (
+				A7467D4C1A8E00EC00F70338 /* Sources */,
+				A7467D4D1A8E00EC00F70338 /* Frameworks */,
+				A7467D4E1A8E00EC00F70338 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7467D521A8E00EC00F70338 /* PBXTargetDependency */,
+			);
+			name = WSDLParserTests;
+			productName = WSDLParserTests;
+			productReference = A7467D501A8E00EC00F70338 /* WSDLParserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7467D361A8E00EB00F70338 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = ByBDesigns;
+				TargetAttributes = {
+					A7467D3D1A8E00EB00F70338 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					A7467D4F1A8E00EC00F70338 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = A7467D3D1A8E00EB00F70338;
+					};
+				};
+			};
+			buildConfigurationList = A7467D391A8E00EB00F70338 /* Build configuration list for PBXProject "WSDLParser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A7467D351A8E00EB00F70338;
+			productRefGroup = A7467D3F1A8E00EC00F70338 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7467D3D1A8E00EB00F70338 /* WSDLParser */,
+				A7467D4F1A8E00EC00F70338 /* WSDLParserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7467D3C1A8E00EB00F70338 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7467D481A8E00EC00F70338 /* Images.xcassets in Resources */,
+				A7467D4B1A8E00EC00F70338 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7467D4E1A8E00EC00F70338 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7467D3A1A8E00EB00F70338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7467D641A8E1B3300F70338 /* Stack.swift in Sources */,
+				A7467D611A8E020900F70338 /* WSDLParserDelegate.swift in Sources */,
+				A7467D461A8E00EC00F70338 /* ViewController.swift in Sources */,
+				A7467D671A8E1FC600F70338 /* ifNotNil.swift in Sources */,
+				A7467D6D1A8E87C000F70338 /* Dictionary+functional.swift in Sources */,
+				A7467D441A8E00EC00F70338 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7467D4C1A8E00EC00F70338 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7467D691A8E2B9A00F70338 /* ifNotNil.swift in Sources */,
+				A7467D6B1A8E2BA200F70338 /* WSDLParserDelegate.swift in Sources */,
+				A7467D6E1A8E87C000F70338 /* Dictionary+functional.swift in Sources */,
+				A7467D6A1A8E2B9C00F70338 /* Stack.swift in Sources */,
+				A7467D571A8E00EC00F70338 /* WSDLParserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7467D521A8E00EC00F70338 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7467D3D1A8E00EB00F70338 /* WSDLParser */;
+			targetProxy = A7467D511A8E00EC00F70338 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7467D491A8E00EC00F70338 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7467D4A1A8E00EC00F70338 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7467D581A8E00EC00F70338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A7467D591A8E00EC00F70338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A7467D5B1A8E00EC00F70338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = WSDLParser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A7467D5C1A8E00EC00F70338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = WSDLParser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A7467D5E1A8E00EC00F70338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WSDLParserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WSDLParser.app/Contents/MacOS/WSDLParser";
+			};
+			name = Debug;
+		};
+		A7467D5F1A8E00EC00F70338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WSDLParserTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WSDLParser.app/Contents/MacOS/WSDLParser";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7467D391A8E00EB00F70338 /* Build configuration list for PBXProject "WSDLParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7467D581A8E00EC00F70338 /* Debug */,
+				A7467D591A8E00EC00F70338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7467D5A1A8E00EC00F70338 /* Build configuration list for PBXNativeTarget "WSDLParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7467D5B1A8E00EC00F70338 /* Debug */,
+				A7467D5C1A8E00EC00F70338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A7467D5D1A8E00EC00F70338 /* Build configuration list for PBXNativeTarget "WSDLParserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7467D5E1A8E00EC00F70338 /* Debug */,
+				A7467D5F1A8E00EC00F70338 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7467D361A8E00EB00F70338 /* Project object */;
+}
