@@ -22,6 +22,7 @@ enum WSDLTag: String {
 	case Operation = "wsdl:operation"
 	case Input = "wsdl:input"
 	case Output = "wsdl:output"
+	case Binding = "wsdl:binding"
 }
 
 typealias StringStack = Stack<String>
@@ -35,6 +36,7 @@ class WSDLParserDelegate: NSObject
 		var types: Types? = nil
 		var messages: [ Message ] = [Message]()
 		var portTypes: [ PortType ] = [PortType]()
+		var bindings: [ Binding ] = [Binding]()
 		
 		func appendMessage(message: Message)
 		{
@@ -44,6 +46,11 @@ class WSDLParserDelegate: NSObject
 		func appendPortType(portType: PortType)
 		{
 			self.portTypes.append(portType)
+		}
+		
+		func appendBinding(binding: Binding)
+		{
+			self.bindings.append(binding)
 		}
 	}
 	
@@ -128,6 +135,11 @@ class WSDLParserDelegate: NSObject
 		var input: String? = nil
 		var output: String? = nil
 	}
+	
+	class Binding {
+		var name: String? = nil
+		var type: String? = nil
+	}
 
 	private var stack: StringStack = StringStack()
 	private var currentSchema: Schema? = nil
@@ -137,6 +149,7 @@ class WSDLParserDelegate: NSObject
 	private var currentMessage: Message? = nil
 	private var currentPortType: PortType? = nil
 	private var currentOperation: Operation? = nil
+	private var currentBinding: Binding? = nil
 	
 	private(set) var definitions: Definitions? = nil
 }
@@ -224,6 +237,13 @@ extension WSDLParserDelegate: NSXMLParserDelegate
 				
 			case .Output:
 				parseOutputAttributes(self.currentOperation, attributeDict: attributeDict)
+				
+			case .Binding:
+				self.currentBinding = parseBindingAttributes(attributeDict)
+				if let currentBinding = self.currentBinding
+				{
+					self.definitions?.appendBinding(currentBinding)
+				}
 			}
 		}
 	}
@@ -270,6 +290,9 @@ extension WSDLParserDelegate: NSXMLParserDelegate
 				
 			case .Input: break
 			case .Output: break
+				
+			case .Binding:
+				self.currentBinding = nil
 			}
 		}
 	}
@@ -412,5 +435,15 @@ extension WSDLParserDelegate
 	func parseOutputAttributes(operation: Operation?, attributeDict: [ NSObject : AnyObject ])
 	{
 		operation?.output = attributeDict["message"] as? String
+	}
+	
+	func parseBindingAttributes(attributeDict: [ NSObject : AnyObject ]) -> Binding
+	{
+		let binding = Binding()
+		
+		binding.name = attributeDict["name"] as? String
+		binding.type = attributeDict["type"] as? String
+		
+		return binding
 	}
 }
