@@ -136,7 +136,36 @@ class WSDLParserTests: XCTestCase {
 		
 		let firstBinding = self.parser?.definitions?.bindings.first
 		XCTAssertNotNil(firstBinding, "First binding is nil")
+		XCTAssert((firstBinding?.operations.count ?? 0) > 0, "FirstBinding doesn't have any operations")
 		XCTAssertNotNil(firstBinding?.name, "First binding name is nil")
 		XCTAssertNotNil(firstBinding?.type, "First binding type is nil")
+	}
+	
+	func testSoapBindings()
+	{
+		let firstBinding = self.parser?.definitions?.bindings.first
+		XCTAssertNotNil(firstBinding, "First binding is nil")
+		XCTAssertNotNil(firstBinding?.soapBinding, "First binding SOAP binding is nil")
+		let firstOperation = firstBinding?.operations.first
+		XCTAssertNotNil(firstOperation, "First operation of first binding is nil")
+		XCTAssertNotNil(firstOperation?.soapOperation, "Soap operation of first operation is nil")
+		XCTAssertNotNil(firstOperation?.input, "Input of first operation is nil")
+		XCTAssertNotNil(firstOperation?.output, "Output of first operation is nil")
+		XCTAssertNotNil(firstOperation?.input?.soapBody, "Soap body of first operation input is nil")
+		XCTAssertNotNil(firstOperation?.output?.soapBody, "Soap body of first operation output is nil")
+	}
+	
+	func testServices()
+	{
+		XCTAssert((self.parser?.definitions?.services.count ?? 0) > 0, "WSDL doesn't have any service")
+		
+		let firstService = self.parser?.definitions?.services.first
+		XCTAssertNotNil(firstService, "First service is nil")
+		XCTAssert((firstService?.ports.count ?? 0) > 0, "FirstService doesn't have any port")
+		let firstPort = firstService?.ports.first
+		XCTAssertNotNil(firstPort, "First port of first service is nil")
+		XCTAssertNotNil(firstPort?.name, "First port name is nil")
+		XCTAssertNotNil(firstPort?.binding, "First port binding is nil")
+		XCTAssertNotNil(firstPort?.soapAddress, "First port soap address is nil")
 	}
 }

@@ -23,6 +23,16 @@ enum WSDLTag: String {
 	case Input = "wsdl:input"
 	case Output = "wsdl:output"
 	case Binding = "wsdl:binding"
+	case SoapBinding = "soap:binding"
+	case Soap12Binding = "soap12:binding"
+	case SoapOperation = "soap:operation"
+	case Soap12Operation = "soap12:operation"
+	case SoapBody = "soap:body"
+	case Soap12Body = "soap12:body"
+	case Service = "wsdl:service"
+	case Port = "wsdl:port"
+	case SoapAddress = "soap:address"
+	case Soap12Address = "soap12:address"
 }
 
 typealias StringStack = Stack<String>
@@ -37,6 +47,7 @@ class WSDLParserDelegate: NSObject
 		var messages: [ Message ] = [Message]()
 		var portTypes: [ PortType ] = [PortType]()
 		var bindings: [ Binding ] = [Binding]()
+		var services: [ Service ] = [Service]()
 		
 		func appendMessage(message: Message)
 		{
@@ -51,6 +62,11 @@ class WSDLParserDelegate: NSObject
 		func appendBinding(binding: Binding)
 		{
 			self.bindings.append(binding)
+		}
+		
+		func appendService(service: Service)
+		{
+			self.services.append(service)
 		}
 	}
 	
@@ -132,13 +148,64 @@ class WSDLParserDelegate: NSObject
 	class Operation {
 		var name: String? = nil
 		
-		var input: String? = nil
-		var output: String? = nil
+		var input: InputOutput? = nil
+		var output: InputOutput? = nil
+		
+		var soapOperation: SoapOperation? = nil
+	}
+	
+	class InputOutput {
+		var message: String? = nil
+		
+		var soapBody: SoapBody? = nil
 	}
 	
 	class Binding {
 		var name: String? = nil
 		var type: String? = nil
+		
+		var soapBinding: SoapBinding? = nil
+		var operations: [ Operation ] = [Operation]()
+		
+		func appendOperation(operation: Operation)
+		{
+			self.operations.append(operation)
+		}
+	}
+	
+	class SoapBinding {
+		var transport: String? = nil
+	}
+	
+	class SoapOperation {
+		var soapAction: String? = nil
+		var style: String? = nil
+	}
+	
+	class SoapBody {
+		var use: String? = nil
+	}
+	
+	class Service {
+		var name: String? = nil
+		
+		var ports: [ Port ] = [Port]()
+		
+		func appendPort(port: Port)
+		{
+			self.ports.append(port)
+		}
+	}
+	
+	class Port {
+		var name: String? = nil
+		var binding: String? = nil
+		
+		var soapAddress: SoapAddress? = nil
+	}
+	
+	class SoapAddress {
+		var location: String? = nil
 	}
 
 	private var stack: StringStack = StringStack()
@@ -150,6 +217,9 @@ class WSDLParserDelegate: NSObject
 	private var currentPortType: PortType? = nil
 	private var currentOperation: Operation? = nil
 	private var currentBinding: Binding? = nil
+	private var currentInputOutput: InputOutput? = nil
+	private var currentService: Service? = nil
+	private var currentPort: Port? = nil
 	
 	private(set) var definitions: Definitions? = nil
 }
@@ -230,13 +300,20 @@ extension WSDLParserDelegate: NSXMLParserDelegate
 				}
 				
 			case .Operation:
-				self.currentOperation = parseOperationAttributes(self.currentPortType, attributeDict: attributeDict)
+				if parentName == WSDLTag.PortType.rawValue
+				{
+					self.currentOperation = parsePortTypeOperationAttributes(self.currentPortType, attributeDict: attributeDict)
+				}
+				else if parentName == WSDLTag.Binding.rawValue
+				{
+					self.currentOperation = parseBindingOperationAttributes(self.currentBinding, attributeDict: attributeDict)
+				}
 				
 			case .Input:
-				parseInputAttributes(self.currentOperation, attributeDict: attributeDict)
+				self.currentInputOutput = parseInputAttributes(self.currentOperation, attributeDict: attributeDict)
 				
 			case .Output:
-				parseOutputAttributes(self.currentOperation, attributeDict: attributeDict)
+				self.currentInputOutput = parseOutputAttributes(self.currentOperation, attributeDict: attributeDict)
 				
 			case .Binding:
 				self.currentBinding = parseBindingAttributes(attributeDict)
@@ -244,6 +321,32 @@ extension WSDLParserDelegate: NSXMLParserDelegate
 				{
 					self.definitions?.appendBinding(currentBinding)
 				}
+				
+			case .SoapBinding: fallthrough
+			case .Soap12Binding:
+				parseSoapBindingAttributes(self.currentBinding, attributeDict: attributeDict)
+				
+			case .SoapOperation: fallthrough
+			case .Soap12Operation:
+				parseSoapOperationAttributes(self.currentOperation, attributeDict: attributeDict)
+				
+			case .SoapBody: fallthrough
+			case .Soap12Body:
+				parseSoapBodyAttributes(self.currentInputOutput, attributeDict: attributeDict)
+				
+			case .Service:
+				self.currentService = parseServiceAttributes(attributeDict)
+				if let currentService = self.currentService
+				{
+					self.definitions?.appendService(currentService)
+				}
+				
+			case .Port:
+				self.currentPort = parsePortAttributes(self.currentService, attributeDict: attributeDict)
+				
+			case .SoapAddress: fallthrough
+			case .Soap12Address:
+				parseSoapAddressAttributes(self.currentPort, attributeDict: attributeDict)
 			}
 		}
 	}
@@ -288,11 +391,30 @@ extension WSDLParserDelegate: NSXMLParserDelegate
 			case .Operation:
 				self.currentOperation = nil
 				
-			case .Input: break
-			case .Output: break
+			case .Input: fallthrough
+			case .Output:
+				self.currentInputOutput = nil
 				
 			case .Binding:
 				self.currentBinding = nil
+				
+			case .SoapBinding: fallthrough
+			case .Soap12Binding: break
+				
+			case .SoapOperation: fallthrough
+			case .Soap12Operation: break
+				
+			case .SoapBody: fallthrough
+			case .Soap12Body: break
+				
+			case .Service:
+				self.currentService = nil
+				
+			case .Port:
+				self.currentPort = nil
+				
+			case .SoapAddress: fallthrough
+			case .Soap12Address: break
 			}
 		}
 	}
@@ -416,7 +538,7 @@ extension WSDLParserDelegate
 		return portType
 	}
 	
-	func parseOperationAttributes(portType: PortType?, attributeDict: [ NSObject : AnyObject ]) -> Operation
+	func parsePortTypeOperationAttributes(portType: PortType?, attributeDict: [ NSObject : AnyObject ]) -> Operation
 	{
 		let operation = Operation()
 		
@@ -427,14 +549,26 @@ extension WSDLParserDelegate
 		return operation
 	}
 	
-	func parseInputAttributes(operation: Operation?, attributeDict: [ NSObject : AnyObject ])
+	func parseInputAttributes(operation: Operation?, attributeDict: [ NSObject : AnyObject ]) -> InputOutput
 	{
-		operation?.input = attributeDict["message"] as? String
+		let input = InputOutput()
+		
+		input.message = attributeDict["message"] as? String
+		
+		operation?.input = input
+		
+		return input
 	}
 	
-	func parseOutputAttributes(operation: Operation?, attributeDict: [ NSObject : AnyObject ])
+	func parseOutputAttributes(operation: Operation?, attributeDict: [ NSObject : AnyObject ]) -> InputOutput
 	{
-		operation?.output = attributeDict["message"] as? String
+		let output = InputOutput()
+		
+		output.message = attributeDict["message"] as? String
+		
+		operation?.output = output
+		
+		return output
 	}
 	
 	func parseBindingAttributes(attributeDict: [ NSObject : AnyObject ]) -> Binding
@@ -445,5 +579,74 @@ extension WSDLParserDelegate
 		binding.type = attributeDict["type"] as? String
 		
 		return binding
+	}
+	
+	func parseSoapBindingAttributes(binding: Binding?, attributeDict: [ NSObject : AnyObject ])
+	{
+		let soapBinding = SoapBinding()
+		
+		soapBinding.transport = attributeDict["transport"] as? String
+		
+		binding?.soapBinding = soapBinding
+	}
+	
+	func parseBindingOperationAttributes(binding: Binding?, attributeDict: [ NSObject : AnyObject ]) -> Operation
+	{
+		let operation = Operation()
+		
+		operation.name = attributeDict["name"] as? String
+		
+		binding?.appendOperation(operation)
+		
+		return operation
+	}
+	
+	func parseSoapOperationAttributes(operation: Operation?, attributeDict: [ NSObject : AnyObject ])
+	{
+		let soapOperation = SoapOperation()
+		
+		soapOperation.soapAction = attributeDict["soapAction"] as? String
+		soapOperation.style = attributeDict["style"] as? String
+		
+		operation?.soapOperation = soapOperation
+	}
+	
+	func parseSoapBodyAttributes(inputOutput: InputOutput?, attributeDict: [ NSObject : AnyObject ])
+	{
+		let soapBody = SoapBody()
+		
+		soapBody.use = attributeDict["use"] as? String
+		
+		inputOutput?.soapBody = soapBody
+	}
+	
+	func parseServiceAttributes(attributeDict: [ NSObject : AnyObject ]) -> Service
+	{
+		let service = Service()
+		
+		service.name = attributeDict["name"] as? String
+		
+		return service
+	}
+	
+	func parsePortAttributes(service: Service?, attributeDict: [ NSObject : AnyObject ]) -> Port
+	{
+		let port = Port()
+		
+		port.name = attributeDict["name"] as? String
+		port.binding = attributeDict["binding"] as? String
+		
+		service?.appendPort(port)
+		
+		return port
+	}
+	
+	func parseSoapAddressAttributes(port: Port?, attributeDict: [ NSObject : AnyObject ])
+	{
+		let soapAddress = SoapAddress()
+		
+		soapAddress.location = attributeDict["name"] as? String
+		
+		port?.soapAddress = soapAddress
 	}
 }
