@@ -10,6 +10,11 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+	@IBOutlet var urlField: NSTextField?
+	@IBOutlet var tableView: NSTableView?
+	
+	var parser: WSDLParserDelegate? = nil
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -23,3 +28,74 @@ class ViewController: NSViewController {
 	}
 }
 
+// Actions
+extension ViewController
+{
+	@IBAction func parseButtonClicked(sender: AnyObject) {
+		if let urlString = urlField?.stringValue
+		{
+			dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)) {
+				self.parser = self.wsdlParser(url: urlString)
+				if let parser = self.parser
+				{
+					dispatch_async(dispatch_get_main_queue()) {
+						self.tableView?.reloadData()
+						
+						return
+					}
+				}
+			}
+		}
+	}
+}
+
+// NSTextField
+extension ViewController: NSTextFieldDelegate
+{
+}
+
+// NSTableView
+extension ViewController: NSTableViewDataSource
+{
+	func numberOfRowsInTableView(aTableView: NSTableView) -> Int
+	{
+		return self.parser?.definitions?.services.count ?? 0
+	}
+	
+	func tableView(aTableView: NSTableView,
+		objectValueForTableColumn aTableColumn: NSTableColumn?,
+		row rowIndex: Int) -> AnyObject?
+	{
+		let valueString = self.parser?.definitions?.services[rowIndex].name ?? ""
+		
+		return NSString(string: valueString)
+	}
+}
+
+extension ViewController: NSTableViewDelegate
+{
+}
+
+// Helpers
+extension ViewController
+{
+	func wsdlParser(#url: String) -> WSDLParserDelegate?
+	{
+		if let url = NSURL(string: url)
+		{
+			if var parser = NSXMLParser(contentsOfURL: url)
+			{
+				var delegate = WSDLParserDelegate()
+				parser.delegate = delegate
+				parser.shouldReportNamespacePrefixes = true
+				
+				if parser.parse()
+				{
+					return delegate
+				}
+			}
+		}
+		
+		return nil
+	}
+}
