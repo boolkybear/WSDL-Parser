@@ -645,7 +645,7 @@ extension WSDLParserDelegate
 	{
 		let soapAddress = SoapAddress()
 		
-		soapAddress.location = attributeDict["name"] as? String
+		soapAddress.location = attributeDict["location"] as? String
 		
 		port?.soapAddress = soapAddress
 	}

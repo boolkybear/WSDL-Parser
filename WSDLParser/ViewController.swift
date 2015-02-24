@@ -9,6 +9,11 @@
 import Cocoa
 
 class ViewController: NSViewController {
+	
+	enum SegueIdentifier: String
+	{
+		case ServiceToPortsSegue = "PortsShowSegue"
+	}
 
 	@IBOutlet var urlField: NSTextField?
 	@IBOutlet var tableView: NSTableView?
@@ -21,9 +26,21 @@ class ViewController: NSViewController {
 		// Do any additional setup after loading the view.
 	}
 
-	override var representedObject: AnyObject? {
-		didSet {
-		// Update the view, if already loaded.
+	override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+		if let identifier = SegueIdentifier(rawValue: segue.identifier ?? "")
+		{
+			switch identifier
+			{
+			case .ServiceToPortsSegue:
+				if let serviceIndex = sender as? NSNumber
+				{
+					if let service = self.parser?.definitions?.services[serviceIndex.integerValue]
+					{
+						let controller = segue.destinationController as PortsViewController
+						controller.setDataOrigin(self.parser!, service: service)
+					}
+				}
+			}
 		}
 	}
 }
@@ -74,6 +91,16 @@ extension ViewController: NSTableViewDataSource
 
 extension ViewController: NSTableViewDelegate
 {
+	func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+		let count = self.parser?.definitions?.services.count ?? 0
+		
+		if row < count
+		{
+			self.performSegueWithIdentifier("PortsShowSegue", sender: NSNumber(integer: row))
+		}
+		
+		return row < count
+	}
 }
 
 // Helpers

@@ -167,5 +167,6 @@ class WSDLParserTests: XCTestCase {
 		XCTAssertNotNil(firstPort?.name, "First port name is nil")
 		XCTAssertNotNil(firstPort?.binding, "First port binding is nil")
 		XCTAssertNotNil(firstPort?.soapAddress, "First port soap address is nil")
+		XCTAssertNotNil(firstPort?.soapAddress?.location, "First port soap address location is nil")
 	}
 }
