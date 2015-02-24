@@ -20,8 +20,8 @@ class OperationsViewController: NSViewController {
 	{
 		case Operation = "operationColumn"
 		case Action = "actionColumn"
-		case Input = "inputColumn"
-		case Output = "outputColumn"
+//		case Input = "inputColumn"
+//		case Output = "outputColumn"
 	}
 	
 	enum SegueIdentifier: String
@@ -95,7 +95,7 @@ extension OperationsViewController: NSTableViewDataSource
 		let string: String? = {
 			if let operation = self.binding?.operations[rowIndex]
 			{
-				let portTypeOperation = self.portType?.operationNamed(operation.name ?? "")
+				//let portTypeOperation = self.portType?.operationNamed(operation.name ?? "")
 				
 				if let column = Column(rawValue: aTableColumn?.identifier ?? "")
 				{
@@ -107,11 +107,11 @@ extension OperationsViewController: NSTableViewDataSource
 					case .Action:
 						return operation.soapOperation?.soapAction
 						
-					case .Input:
-						return portTypeOperation?.input?.message
-						
-					case .Output:
-						return portTypeOperation?.output?.message
+//					case .Input:
+//						return portTypeOperation?.input?.message
+//						
+//					case .Output:
+//						return portTypeOperation?.output?.message
 					}
 				}
 			}
