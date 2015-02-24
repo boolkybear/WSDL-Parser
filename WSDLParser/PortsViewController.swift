@@ -2,7 +2,7 @@
 //  PortsViewController.swift
 //  WSDLParser
 //
-//  Created by Dylvian on 24/2/15.
+//  Created by Boolky Bear on 24/2/15.
 //  Copyright (c) 2015 ByBDesigns. All rights reserved.
 //
 
@@ -22,6 +22,11 @@ class PortsViewController: NSViewController {
 		case Address = "addressColumn"
 	}
 	
+	enum SegueIdentifier: String
+	{
+		case PortToBindingsShow = "BindingsShowSegue"
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -32,7 +37,31 @@ class PortsViewController: NSViewController {
 		self.parser = parser
 		self.service = service
 		
+		let serviceName = service.name ?? "UNNAMED"
+		self.title = "Ports of \(serviceName)"
+		
 		self.tableView?.reloadData()
+	}
+	
+	override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
+		if let identifier = SegueIdentifier(rawValue: segue.identifier ?? "")
+		{
+			switch identifier
+			{
+			case .PortToBindingsShow:
+				if let portIndex = sender as? NSNumber
+				{
+					if let port = self.service?.ports[portIndex.integerValue]
+					{
+						if let binding = self.parser?.bindingNamed(port.binding ?? "")
+						{
+							let controller = segue.destinationController as OperationsViewController
+							controller.setDataOrigin(self.parser!, binding: binding)
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -70,5 +99,19 @@ extension PortsViewController: NSTableViewDataSource
 		}()
 		
 		return NSString(string: string ?? "")
+	}
+}
+
+extension PortsViewController: NSTableViewDelegate
+{
+	func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+		let count = self.service?.ports.count ?? 0
+		
+		if row < count
+		{
+			self.performSegueWithIdentifier(SegueIdentifier.PortToBindingsShow.rawValue, sender: NSNumber(integer: row))
+		}
+		
+		return row < count
 	}
 }

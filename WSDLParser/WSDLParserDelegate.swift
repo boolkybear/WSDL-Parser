@@ -142,7 +142,25 @@ class WSDLParserDelegate: NSObject
 	class PortType {
 		var name: String? = nil
 		
-		var operation: Operation? = nil
+		var operations: [ Operation ] = [Operation]()
+		
+		func appendOperation(operation: Operation)
+		{
+			self.operations.append(operation)
+		}
+		
+		func operationNamed(name: String) -> Operation?
+		{
+			let cleanName = name.stringByRemovingTNSPrefix()
+			
+			let filteredOperations = self.operations.filter { $0.name == cleanName }
+			if countElements(filteredOperations) == 1
+			{
+				return filteredOperations.first!
+			}
+			
+			return nil
+		}
 	}
 	
 	class Operation {
@@ -544,7 +562,7 @@ extension WSDLParserDelegate
 		
 		operation.name = attributeDict["name"] as? String
 		
-		portType?.operation = operation
+		portType?.appendOperation(operation)
 		
 		return operation
 	}
@@ -648,5 +666,52 @@ extension WSDLParserDelegate
 		soapAddress.location = attributeDict["location"] as? String
 		
 		port?.soapAddress = soapAddress
+	}
+}
+
+// Search
+extension String
+{
+	func stringByRemovingTNSPrefix() -> String
+	{
+		if self.hasPrefix("tns:")
+		{
+			return self.substringFromIndex(advance(self.startIndex, 4))
+		}
+		
+		return self
+	}
+}
+
+extension WSDLParserDelegate
+{
+	func bindingNamed(name: String) -> Binding?
+	{
+		let cleanName = name.stringByRemovingTNSPrefix()
+		
+		if let bindings = self.definitions?.bindings.filter({ $0.name == cleanName })
+		{
+			if countElements(bindings) == 1
+			{
+				return bindings.first!
+			}
+		}
+		
+		return nil
+	}
+	
+	func portTypeNamed(name: String) -> PortType?
+	{
+		let cleanName = name.stringByRemovingTNSPrefix()
+		
+		if let portTypes = self.definitions?.portTypes.filter({ $0.name == cleanName })
+		{
+			if countElements(portTypes) == 1
+			{
+				return portTypes.first!
+			}
+		}
+		
+		return nil
 	}
 }

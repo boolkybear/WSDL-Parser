@@ -12,7 +12,7 @@ class ViewController: NSViewController {
 	
 	enum SegueIdentifier: String
 	{
-		case ServiceToPortsSegue = "PortsShowSegue"
+		case ServiceToPortsShow = "PortsShowSegue"
 	}
 
 	@IBOutlet var urlField: NSTextField?
@@ -31,7 +31,7 @@ class ViewController: NSViewController {
 		{
 			switch identifier
 			{
-			case .ServiceToPortsSegue:
+			case .ServiceToPortsShow:
 				if let serviceIndex = sender as? NSNumber
 				{
 					if let service = self.parser?.definitions?.services[serviceIndex.integerValue]
@@ -96,7 +96,7 @@ extension ViewController: NSTableViewDelegate
 		
 		if row < count
 		{
-			self.performSegueWithIdentifier("PortsShowSegue", sender: NSNumber(integer: row))
+			self.performSegueWithIdentifier(SegueIdentifier.ServiceToPortsShow.rawValue, sender: NSNumber(integer: row))
 		}
 		
 		return row < count

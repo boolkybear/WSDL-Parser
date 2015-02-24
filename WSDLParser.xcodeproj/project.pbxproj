@@ -21,6 +21,7 @@
 		A7467D6D1A8E87C000F70338 /* Dictionary+functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */; };
 		A7467D6E1A8E87C000F70338 /* Dictionary+functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */; };
 		EF42E34D1A9C8FED0060100B /* PortsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42E34C1A9C8FED0060100B /* PortsViewController.swift */; };
+		EF42E34F1A9CCB560060100B /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42E34E1A9CCB560060100B /* OperationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		A7467D661A8E1FC600F70338 /* ifNotNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ifNotNil.swift; sourceTree = "<group>"; };
 		A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+functional.swift"; sourceTree = "<group>"; };
 		EF42E34C1A9C8FED0060100B /* PortsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortsViewController.swift; sourceTree = "<group>"; };
+		EF42E34E1A9CCB560060100B /* OperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				A7467D431A8E00EC00F70338 /* AppDelegate.swift */,
 				A7467D451A8E00EC00F70338 /* ViewController.swift */,
 				EF42E34C1A9C8FED0060100B /* PortsViewController.swift */,
+				EF42E34E1A9CCB560060100B /* OperationsViewController.swift */,
 				A7467D471A8E00EC00F70338 /* Images.xcassets */,
 				A7467D491A8E00EC00F70338 /* Main.storyboard */,
 				A7467D411A8E00EC00F70338 /* Supporting Files */,
@@ -231,6 +234,7 @@
 				A7467D611A8E020900F70338 /* WSDLParserDelegate.swift in Sources */,
 				A7467D461A8E00EC00F70338 /* ViewController.swift in Sources */,
 				EF42E34D1A9C8FED0060100B /* PortsViewController.swift in Sources */,
+				EF42E34F1A9CCB560060100B /* OperationsViewController.swift in Sources */,
 				A7467D671A8E1FC600F70338 /* ifNotNil.swift in Sources */,
 				A7467D6D1A8E87C000F70338 /* Dictionary+functional.swift in Sources */,
 				A7467D441A8E00EC00F70338 /* AppDelegate.swift in Sources */,

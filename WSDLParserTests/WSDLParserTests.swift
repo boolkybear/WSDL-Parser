@@ -125,9 +125,10 @@ class WSDLParserTests: XCTestCase {
 	{
 		let firstPortType = self.parser?.definitions?.portTypes.first
 		XCTAssertNotNil(firstPortType, "First portType is nil")
-		XCTAssertNotNil(firstPortType?.operation, "First portType operation is nil")
-		XCTAssertNotNil(firstPortType?.operation?.input, "First portType operation input is nil")
-		XCTAssertNotNil(firstPortType?.operation?.output, "First portType operation output is nil")
+		let firstPortTypeOperation = firstPortType?.operations.first
+		XCTAssertNotNil(firstPortTypeOperation, "First portType operation is nil")
+		XCTAssertNotNil(firstPortTypeOperation?.input, "First portType operation input is nil")
+		XCTAssertNotNil(firstPortTypeOperation?.output, "First portType operation output is nil")
 	}
 	
 	func testBindings()
