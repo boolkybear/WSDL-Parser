@@ -115,6 +115,39 @@ class WSDLParserDelegate: NSObject
 		var maxOccurs: Int? = nil
 		var type: String? = nil
 		var isNillable: Bool = false
+		
+		func asOuterString() -> String
+		{
+			let complexString = self.complexType?.asString()
+			let compoundString = self.type == nil ? "" : "Compound type \(self.type!) not yet supported\n"
+			
+			return "class \(self.name!) {\n" +
+						(complexString ?? "") + "\n" +
+						compoundString +
+					"}"
+		}
+		
+		func asInnerString() -> String
+		{
+			let varType: String = {
+				switch (self.minOccurs, self.maxOccurs)
+				{
+				case (0, .Some):
+					return "\(self.type!)?"
+					
+				case (1, .Some):
+					return "\(self.type!)"
+					
+				case (_, nil):
+					return "[\(self.type!)]"
+					
+				default:
+					return "UNKNOWN"
+				}
+			}()
+			
+			return "var \(self.name!): \(varType)"
+		}
 	}
 	
 	class ComplexType {
@@ -122,6 +155,11 @@ class WSDLParserDelegate: NSObject
 		var name: String? = nil
 		
 		var sequence: Sequence? = nil
+		
+		func asString() -> String
+		{
+			return self.sequence?.asString() ?? ""
+		}
 	}
 	
 	class Sequence {
@@ -130,6 +168,13 @@ class WSDLParserDelegate: NSObject
 		func appendElement(element: Element)
 		{
 			self.elements.append(element)
+		}
+		
+		func asString() -> String
+		{
+			let elementStrings = self.elements.map { $0.asInnerString() }
+			
+			return join("\n", elementStrings)
 		}
 	}
 	
@@ -724,6 +769,21 @@ extension WSDLParserDelegate
 			if countElements(messages) == 1
 			{
 				return messages.first!
+			}
+		}
+		
+		return nil
+	}
+	
+	func elementNamed(name: String) -> Element?
+	{
+		let cleanName = name.stringByRemovingTNSPrefix()
+		
+		if let elements = self.definitions?.types?.schemas.first?.elements.filter({ $0.name == cleanName })
+		{
+			if countElements(elements) == 1
+			{
+				return elements.first!
 			}
 		}
 		

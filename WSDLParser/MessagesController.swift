@@ -59,19 +59,11 @@ class MessagesController: NSViewController {
 			switch identifier
 			{
 			case .MessageToTypesShow:
-				break
-				// TODO: check segue
-//				if let operationIndex = sender as? NSNumber
-//				{
-//					if let operation = self.binding?.operations[operationIndex.integerValue]
-//					{
-//						if let portTypeOperation = self.portType?.operationNamed(operation.name ?? "")
-//						{
-//							let controller = segue.destinationController as MessagesViewController
-//							controller.setDataOrigin(self.parser!, operation: portTypeOperation)
-//						}
-//					}
-//				}
+				if let messageWrapper = sender as? MessageWrapper
+				{
+					let controller = segue.destinationController as TypesViewController
+					controller.setDataOrigin(self.parser!, message: messageWrapper.message)
+				}
 			}
 		}
 	}

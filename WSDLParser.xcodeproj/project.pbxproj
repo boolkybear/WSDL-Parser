@@ -23,6 +23,7 @@
 		EF42E34D1A9C8FED0060100B /* PortsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42E34C1A9C8FED0060100B /* PortsViewController.swift */; };
 		EF42E34F1A9CCB560060100B /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42E34E1A9CCB560060100B /* OperationsViewController.swift */; };
 		EF73DC121A9DCFBC0051A2EB /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF73DC111A9DCFBC0051A2EB /* MessagesController.swift */; };
+		EF73DC181A9E1DE40051A2EB /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF73DC171A9E1DE40051A2EB /* TypesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		EF42E34C1A9C8FED0060100B /* PortsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortsViewController.swift; sourceTree = "<group>"; };
 		EF42E34E1A9CCB560060100B /* OperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
 		EF73DC111A9DCFBC0051A2EB /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
+		EF73DC171A9E1DE40051A2EB /* TypesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				EF42E34C1A9C8FED0060100B /* PortsViewController.swift */,
 				EF42E34E1A9CCB560060100B /* OperationsViewController.swift */,
 				EF73DC111A9DCFBC0051A2EB /* MessagesController.swift */,
+				EF73DC171A9E1DE40051A2EB /* TypesViewController.swift */,
 				A7467D471A8E00EC00F70338 /* Images.xcassets */,
 				A7467D491A8E00EC00F70338 /* Main.storyboard */,
 				A7467D411A8E00EC00F70338 /* Supporting Files */,
@@ -235,6 +238,7 @@
 			files = (
 				A7467D641A8E1B3300F70338 /* Stack.swift in Sources */,
 				A7467D611A8E020900F70338 /* WSDLParserDelegate.swift in Sources */,
+				EF73DC181A9E1DE40051A2EB /* TypesViewController.swift in Sources */,
 				A7467D461A8E00EC00F70338 /* ViewController.swift in Sources */,
 				EF42E34D1A9C8FED0060100B /* PortsViewController.swift in Sources */,
 				EF42E34F1A9CCB560060100B /* OperationsViewController.swift in Sources */,
