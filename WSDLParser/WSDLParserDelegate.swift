@@ -714,4 +714,19 @@ extension WSDLParserDelegate
 		
 		return nil
 	}
+	
+	func messageNamed(name: String) -> Message?
+	{
+		let cleanName = name.stringByRemovingTNSPrefix()
+		
+		if let messages = self.definitions?.messages.filter({ $0.name == cleanName })
+		{
+			if countElements(messages) == 1
+			{
+				return messages.first!
+			}
+		}
+		
+		return nil
+	}
 }

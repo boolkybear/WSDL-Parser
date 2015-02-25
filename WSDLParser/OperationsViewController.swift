@@ -60,20 +60,11 @@ class OperationsViewController: NSViewController {
 				{
 					if let operation = self.binding?.operations[operationIndex.integerValue]
 					{
-						// TODO: adjust show
-//						if let bindingName = port.binding
-//						{
-//							let bindingIdentifier = bindingName.hasPrefix("tns:") ? bindingName.substringFromIndex(advance(bindingName.startIndex, 4)) : bindingName
-//							let bindings = self.parser?.definitions?.bindings.filter { $0.name == bindingIdentifier }
-//							if bindings?.count ?? 0 == 1
-//							{
-//								if let binding = bindings?.first
-//								{
-//									let controller = segue.destinationController as OperationsViewController
-//									controller.setDataOrigin(self.parser!, service: service)
-//								}
-//							}
-//						}
+						if let portTypeOperation = self.portType?.operationNamed(operation.name ?? "")
+						{
+							let controller = segue.destinationController as MessagesController
+							controller.setDataOrigin(self.parser!, operation: portTypeOperation)
+						}
 					}
 				}
 			}
@@ -95,7 +86,7 @@ extension OperationsViewController: NSTableViewDataSource
 		let string: String? = {
 			if let operation = self.binding?.operations[rowIndex]
 			{
-				//let portTypeOperation = self.portType?.operationNamed(operation.name ?? "")
+				
 				
 				if let column = Column(rawValue: aTableColumn?.identifier ?? "")
 				{
@@ -106,12 +97,6 @@ extension OperationsViewController: NSTableViewDataSource
 						
 					case .Action:
 						return operation.soapOperation?.soapAction
-						
-//					case .Input:
-//						return portTypeOperation?.input?.message
-//						
-//					case .Output:
-//						return portTypeOperation?.output?.message
 					}
 				}
 			}
