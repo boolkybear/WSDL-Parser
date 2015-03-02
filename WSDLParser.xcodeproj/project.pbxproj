@@ -22,8 +22,14 @@
 		A7467D6E1A8E87C000F70338 /* Dictionary+functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */; };
 		EF42E34D1A9C8FED0060100B /* PortsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42E34C1A9C8FED0060100B /* PortsViewController.swift */; };
 		EF42E34F1A9CCB560060100B /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42E34E1A9CCB560060100B /* OperationsViewController.swift */; };
+		EF54FBDD1AA45D4D00482309 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54FBDC1AA45D4D00482309 /* Weather.swift */; };
+		EF54FBDF1AA470C300482309 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54FBDE1AA470C300482309 /* WeatherTests.swift */; };
+		EF54FBE01AA470D000482309 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF54FBDC1AA45D4D00482309 /* Weather.swift */; };
+		EF54FBE31AA4777A00482309 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B234E316D3AC7208E66DD1A7 /* Pods.framework */; };
+		EF54FBE41AA4778500482309 /* Pods.framework in Resources */ = {isa = PBXBuildFile; fileRef = B234E316D3AC7208E66DD1A7 /* Pods.framework */; };
 		EF73DC121A9DCFBC0051A2EB /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF73DC111A9DCFBC0051A2EB /* MessagesController.swift */; };
 		EF73DC181A9E1DE40051A2EB /* TypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF73DC171A9E1DE40051A2EB /* TypesViewController.swift */; };
+		F673BEB22B46BA00B93C7881 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B234E316D3AC7208E66DD1A7 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		438EE633E1CFA8B5CA2DE530 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A7467D3E1A8E00EC00F70338 /* WSDLParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSDLParser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7467D421A8E00EC00F70338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7467D431A8E00EC00F70338 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +57,13 @@
 		A7467D631A8E1B3300F70338 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		A7467D661A8E1FC600F70338 /* ifNotNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ifNotNil.swift; sourceTree = "<group>"; };
 		A7467D6C1A8E87C000F70338 /* Dictionary+functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+functional.swift"; sourceTree = "<group>"; };
+		B234E316D3AC7208E66DD1A7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE2D1772DDDC82C1BB87502 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EF42E34C1A9C8FED0060100B /* PortsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortsViewController.swift; sourceTree = "<group>"; };
 		EF42E34E1A9CCB560060100B /* OperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
+		EF54FBDC1AA45D4D00482309 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = manual/Weather.swift; sourceTree = "<group>"; };
+		EF54FBDE1AA470C300482309 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
+		EF54FBE11AA476E700482309 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Pods/../build/Debug/Pods/Alamofire.framework; sourceTree = "<group>"; };
 		EF73DC111A9DCFBC0051A2EB /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		EF73DC171A9E1DE40051A2EB /* TypesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F673BEB22B46BA00B93C7881 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,18 +81,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF54FBE31AA4777A00482309 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		410BD524440F3875DE2C0902 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF54FBE11AA476E700482309 /* Alamofire.framework */,
+				B234E316D3AC7208E66DD1A7 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		916D9D56D91DCCF74541D424 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				438EE633E1CFA8B5CA2DE530 /* Pods.debug.xcconfig */,
+				CBE2D1772DDDC82C1BB87502 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A7467D351A8E00EB00F70338 = {
 			isa = PBXGroup;
 			children = (
 				A7467D401A8E00EC00F70338 /* WSDLParser */,
 				A7467D531A8E00EC00F70338 /* WSDLParserTests */,
 				A7467D3F1A8E00EC00F70338 /* Products */,
+				916D9D56D91DCCF74541D424 /* Pods */,
+				410BD524440F3875DE2C0902 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +137,7 @@
 				EF42E34E1A9CCB560060100B /* OperationsViewController.swift */,
 				EF73DC111A9DCFBC0051A2EB /* MessagesController.swift */,
 				EF73DC171A9E1DE40051A2EB /* TypesViewController.swift */,
+				EF54FBDB1AA45D0900482309 /* manual */,
 				A7467D471A8E00EC00F70338 /* Images.xcassets */,
 				A7467D491A8E00EC00F70338 /* Main.storyboard */,
 				A7467D411A8E00EC00F70338 /* Supporting Files */,
@@ -124,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				A7467D561A8E00EC00F70338 /* WSDLParserTests.swift */,
+				EF54FBDE1AA470C300482309 /* WeatherTests.swift */,
 				A7467D541A8E00EC00F70338 /* Supporting Files */,
 			);
 			path = WSDLParserTests;
@@ -137,6 +173,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EF54FBDB1AA45D0900482309 /* manual */ = {
+			isa = PBXGroup;
+			children = (
+				EF54FBDC1AA45D4D00482309 /* Weather.swift */,
+			);
+			name = manual;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7467D5A1A8E00EC00F70338 /* Build configuration list for PBXNativeTarget "WSDLParser" */;
 			buildPhases = (
+				B8853EDC54FD7DC180BA258F /* Check Pods Manifest.lock */,
 				A7467D3A1A8E00EB00F70338 /* Sources */,
 				A7467D3B1A8E00EB00F70338 /* Frameworks */,
 				A7467D3C1A8E00EB00F70338 /* Resources */,
+				8C96F69EF43A83BBB9191FF3 /* Embed Pods Frameworks */,
+				5B9376813912ECBD3282D17D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,10 +273,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF54FBE41AA4778500482309 /* Pods.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B9376813912ECBD3282D17D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C96F69EF43A83BBB9191FF3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8853EDC54FD7DC180BA258F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A7467D3A1A8E00EB00F70338 /* Sources */ = {
@@ -239,6 +335,7 @@
 				A7467D641A8E1B3300F70338 /* Stack.swift in Sources */,
 				A7467D611A8E020900F70338 /* WSDLParserDelegate.swift in Sources */,
 				EF73DC181A9E1DE40051A2EB /* TypesViewController.swift in Sources */,
+				EF54FBDD1AA45D4D00482309 /* Weather.swift in Sources */,
 				A7467D461A8E00EC00F70338 /* ViewController.swift in Sources */,
 				EF42E34D1A9C8FED0060100B /* PortsViewController.swift in Sources */,
 				EF42E34F1A9CCB560060100B /* OperationsViewController.swift in Sources */,
@@ -255,9 +352,11 @@
 			files = (
 				A7467D691A8E2B9A00F70338 /* ifNotNil.swift in Sources */,
 				A7467D6B1A8E2BA200F70338 /* WSDLParserDelegate.swift in Sources */,
+				EF54FBDF1AA470C300482309 /* WeatherTests.swift in Sources */,
 				A7467D6E1A8E87C000F70338 /* Dictionary+functional.swift in Sources */,
 				A7467D6A1A8E2B9C00F70338 /* Stack.swift in Sources */,
 				A7467D571A8E00EC00F70338 /* WSDLParserTests.swift in Sources */,
+				EF54FBE01AA470D000482309 /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +461,7 @@
 		};
 		A7467D5B1A8E00EC00F70338 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 438EE633E1CFA8B5CA2DE530 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -373,6 +473,7 @@
 		};
 		A7467D5C1A8E00EC00F70338 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBE2D1772DDDC82C1BB87502 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -390,6 +491,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug/Pods",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -397,6 +499,12 @@
 				);
 				INFOPLIST_FILE = WSDLParserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					"\"Alamofire\"",
+				);
+				OTHER_LIBTOOLFLAGS = "-ObjC -framework \"Alamofire\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WSDLParser.app/Contents/MacOS/WSDLParser";
 			};
@@ -410,9 +518,16 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug/Pods",
 				);
 				INFOPLIST_FILE = WSDLParserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					"\"Alamofire\"",
+				);
+				OTHER_LIBTOOLFLAGS = "-ObjC -framework \"Alamofire\"";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WSDLParser.app/Contents/MacOS/WSDLParser";
 			};

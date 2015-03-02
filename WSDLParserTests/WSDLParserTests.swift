@@ -37,7 +37,7 @@ class WSDLParserTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
 		
-		self.parser = testWSDLParser("http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx?wsdl")
+		self.parser = testWSDLParser("http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl")
     }
     
     override func tearDown() {
